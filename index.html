@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Teste NFC + Python</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #101114;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        main {
+            max-width: 400px;
+            margin: auto;
+            background: #1b1d23;
+            padding: 25px;
+            border-radius: 16px;
+        }
+
+        button {
+            background: #ff7a18;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #status {
+            margin-top: 25px;
+            overflow-wrap: anywhere;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>📡 Leitor NFC</h1>
+
+        <p>Aproxime seu cartão NFC do celular.</p>
+
+        <button id="btnLer">Ler cartão NFC</button>
+
+        <p id="status">Aguardando leitura...</p>
+    </main>
+
+    <script>
+        const CODIGO_AUTORIZADO = "d7:4c:70:b1";
+
+        // Troque pelo IP atual do seu notebook.
+        const SERVIDOR = "192.168.7.18";
+
+        const status = document.getElementById("status");
+        const botao = document.getElementById("btnLer");
+
+        botao.addEventListener("click", lerNFC);
+
+        async function lerNFC() {
+            if (!("NDEFReader" in window)) {
+                status.textContent =
+                    "Web NFC não é compatível com este navegador.";
+                return;
+            }
+
+            try {
+                const leitor = new NDEFReader();
+
+                status.textContent = "Aproxime o cartão NFC...";
+
+                await leitor.scan();
+
+                leitor.addEventListener("reading", async (evento) => {
+                    const codigo = evento.serialNumber
+                        .toLowerCase();
+
+                    status.textContent = "Código lido: " + codigo;
+
+                    if (codigo !== CODIGO_AUTORIZADO) {
+                        status.textContent =
+                            "Cartão não autorizado: " + codigo;
+                        return;
+                    }
+
+                    status.textContent =
+                        "Cartão reconhecido! Enviando ao Python...";
+
+                    try {
+                        const resposta = await fetch(SERVIDOR, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                serialNumber: codigo
+                            })
+                        });
+
+                        const resultado = await resposta.json();
+
+                        status.textContent =
+                            "Python respondeu: " + resultado.mensagem;
+
+                    } catch (erro) {
+                        status.textContent =
+                            "Erro ao conectar ao Python. Verifique o servidor e a rede.";
+                        console.error(erro);
+                    }
+                });
+
+                leitor.addEventListener("readingerror", () => {
+                    status.textContent =
+                        "Não foi possível ler o cartão NFC.";
+                });
+
+            } catch (erro) {
+                status.textContent =
+                    "Erro NFC: " + erro.message;
+            }
+        }
+    </script>
+</body>
+</html>
