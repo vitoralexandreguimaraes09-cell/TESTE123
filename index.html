@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#08090d">
+
+    <title>Sistema VTG | Acesso Restrito</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- TELA 1: LEITOR NFC -->
+
+    <section id="telaNFC" class="tela ativa">
+        <div class="scanner">
+            <div class="logo">VTG<span>.</span></div>
+
+            <div class="iconeNFC">▣</div>
+
+            <h1>SISTEMA BLOQUEADO</h1>
+
+            <p>
+                Aproxime seu cartão NFC para iniciar
+                a autenticação.
+            </p>
+
+            <div class="statusScanner">
+                <span class="ponto"></span>
+                AGUARDANDO CARTÃO
+            </div>
+
+            <button id="btnNFC" class="botaoPrincipal">
+                📡 Ler cartão NFC
+            </button>
+
+            <!-- REMOVER ESTE BOTÃO NA VERSÃO FINAL -->
+
+            <button id="btnTeste" class="botaoTeste">
+                MODO DE TESTE
+            </button>
+
+            <p id="statusNFC" class="mensagemPequena">
+                Sistema aguardando autenticação.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- TELA 2: TERMINAL -->
+
+    <section id="telaTerminal" class="tela">
+        <div class="janelaTerminal">
+
+            <div class="barraTerminal">
+                <div class="bolinhas">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <span>Terminal do sistema</span>
+            </div>
+
+            <div id="conteudoTerminal" class="conteudoTerminal">
+
+                <p>Microsoft Windows [Versão simulada]</p>
+                <p>(c) Sistema de demonstração.</p>
+
+                <br>
+
+                <p>Inicializando sistema...</p>
+                <p>Verificando componentes...</p>
+                <p class="textoVerde">Autenticação concluída.</p>
+
+                <br>
+
+                <p class="textoVermelho">
+                    ERRO: Falha inesperada detectada!
+                </p>
+
+                <p>Deseja reiniciar o sistema? (S/N)</p>
+
+                <div class="linhaEntrada">
+                    <span>&gt;</span>
+                    <input
+                        id="entradaTerminal"
+                        type="text"
+                        maxlength="30"
+                        autocomplete="off"
+                        aria-label="Comando do terminal"
+                        autofocus
+                    >
+                </div>
+
+            </div>
+        </div>
+
+        <p class="avisoFalso">
+            Simulação visual para uma surpresa.
+        </p>
+    </section>
+
+
+    <!-- TELA 3: ALERTA -->
+
+    <section id="telaAlerta" class="tela">
+        <div class="alertaPerigo">
+
+            <div class="simboloPerigo">⚠</div>
+
+            <h1>⚠ ATENÇÃO ⚠</h1>
+
+            <p class="alertaTexto">
+                ISSO PODE COMPROMETER<br>
+                O SEU COMPUTADOR!
+            </p>
+
+            <div class="linhaPerigo"></div>
+
+            <p>
+                AVISO SIMULADO DO SISTEMA
+            </p>
+
+            <button id="btnContinuarAlerta">
+                VOLTAR AO TERMINAL
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- TELA 4: CÓDIGO -->
+
+    <section id="telaCodigo" class="tela">
+        <div class="caixaCodigo">
+
+            <div class="iconeCodigo">⌘</div>
+
+            <h1>REINICIALIZAÇÃO INICIADA</h1>
+
+            <div id="logCodigo" class="logCodigo">
+                <p>Preparando sistema...</p>
+                <p>Verificando arquivos...</p>
+                <p>Inicializando protocolo...</p>
+            </div>
+
+            <p>Execute o código:</p>
+
+            <div class="codigoFicticio">
+                VTG-7X29
+            </div>
+
+            <label for="entradaCodigo">
+                Digite o código para continuar:
+            </label>
+
+            <input
+                id="entradaCodigo"
+                type="text"
+                placeholder="Digite o código..."
+                autocomplete="off"
+            >
+
+            <button id="btnValidarCodigo">
+                CONFIRMAR
+            </button>
+
+            <p id="mensagemCodigo"></p>
+
+        </div>
+    </section>
+
+
+    <!-- TELA 5: FALHA SIMULADA -->
+
+    <section id="telaFalha" class="tela">
+        <div class="falhaConteudo">
+
+            <div class="falhaIcone">!</div>
+
+            <h1>FALHA CRÍTICA</h1>
+
+            <div id="mensagensFalha" class="mensagensFalha">
+                <p>Inicializando...</p>
+            </div>
+
+            <div class="barraProgresso">
+                <div id="progressoFalha"></div>
+            </div>
+
+            <p id="statusFalha">
+                Recuperando sistema...
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- TELA 6: ANIMAÇÃO DA JANELA -->
+
+    <section id="telaQuarto" class="tela">
+        <div class="quarto">
+
+            <div class="lua"></div>
+
+            <div class="estrelas">
+                <span>✦</span>
+                <span>·</span>
+                <span>✧</span>
+                <span>·</span>
+                <span>✦</span>
+                <span>·</span>
+                <span>✧</span>
+                <span>·</span>
+            </div>
+
+            <div class="tituloQuarto">
+                03:17 AM
+            </div>
+
+            <div class="janela">
+                <div class="ceuJanela">
+                    <div class="luaPequena"></div>
+                    <span>✦</span>
+                    <span>·</span>
+                    <span>✧</span>
+                </div>
+
+                <div id="folhaJanela" class="folhaJanela">
+                    <div class="vidroJanela"></div>
+                    <div class="vidroJanela"></div>
+                </div>
+
+                <div class="molduraJanela"></div>
+            </div>
+
+            <div class="parede"></div>
+
+            <div class="cama">
+                <div class="travesseiro"></div>
+
+                <div id="bonequinho" class="bonequinho">
+
+                    <div class="cabeca">
+                        <div class="cabelo"></div>
+                        <div class="olhos">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="corpoBoneco"></div>
+
+                    <div class="braco bracoEsquerdo"></div>
+                    <div class="braco bracoDireito"></div>
+
+                    <div class="perna pernaEsquerda"></div>
+                    <div class="perna pernaDireita"></div>
+
+                </div>
+
+                <div class="cobertor"></div>
+                <div class="baseCama"></div>
+            </div>
+
+            <div id="textoBoo" class="textoBoo">
+                BOOOUUUUUU!!!!!!!!!
+            </div>
+
+            <div id="textoJanela" class="textoJanela">
+                * PÁÁÁÁÁ! *
+            </div>
+
+            <div id="mensagemQuarto" class="mensagemQuarto">
+                Aguarde...
+            </div>
+
+            <button id="btnPularAnimacao" class="botaoPular">
+                Pular animação
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- TELA 7: GALERIA -->
+
+    <section id="telaGaleria" class="tela telaGaleria">
+
+        <header class="cabecalhoGaleria">
+            <div class="logo">VTG<span>.</span></div>
+
+            <div class="etiqueta">
+                EXPERIÊNCIA ESPECIAL
+            </div>
+        </header>
+
+        <div class="heroGaleria">
+
+            <div class="linhaDecorativa"></div>
+
+            <p class="subtituloGaleria">
+                UMA SURPRESA PARA VOCÊ
+            </p>
+
+            <h1>
+                Algumas memórias<br>
+                <span>valem para sempre.</span>
+            </h1>
+
+            <p class="descricaoGaleria">
+                Um pequeno espaço preparado com carinho,
+                para guardar momentos, lembranças e palavras
+                que merecem ser lembradas.
+            </p>
+
+            <a href="#memorias" class="botaoGaleria">
+                EXPLORAR MEMÓRIAS ↓
+            </a>
+
+        </div>
+
+
+        <!-- CARTA 1 -->
+
+        <article class="carta">
+            <div class="numeroCarta">01 / UMA OBRA EM ANDAMENTO</div>
+
+            <h2>Para uma artista muito especial 🎨</h2>
+
+            <p>
+                Você já parou para pensar que uma pintura
+                começa com uma tela em branco?
+            </p>
+
+            <p>
+                No começo, talvez seja difícil imaginar como
+                ficará o resultado. Algumas cores parecem
+                não combinar, certos traços precisam ser
+                refeitos e, às vezes, a obra toma um caminho
+                diferente daquele que imaginamos.
+            </p>
+
+            <p>
+                Mas existe beleza em cada etapa do processo.
+            </p>
+
+            <p>
+                A vida também é assim. Estamos sempre
+                aprendendo, descobrindo coisas novas e
+                construindo nossa própria história.
+            </p>
+
+            <p>
+                E sabe de uma coisa? Deus também conhece
+                cada parte da nossa história, inclusive
+                aquelas que ainda estamos tentando entender.
+            </p>
+
+            <p>
+                Assim como você coloca um pouco de si em
+                cada pintura, espero que nunca deixe de
+                colocar sua criatividade, sua alegria e seu
+                jeito único nas coisas que faz.
+            </p>
+
+            <p class="assinaturaCarta">
+                Esta é apenas a primeira parte de uma
+                surpresa feita especialmente para você. ❤️
+            </p>
+        </article>
+
+
+        <!-- FOTOS 1 E 2 -->
+
+        <section id="memorias" class="secaoMemorias">
+
+            <div class="tituloSecao">
+                <span>01 — 02</span>
+                <h2>Nossas memórias</h2>
+                <p>Pequenos momentos, grandes lembranças.</p>
+            </div>
+
+            <div class="gradeFotos">
+
+                <figure class="fotoCartao">
+                    <img
+                        src="foto1.jpeg"
+                        alt="Primeira memória especial"
+                        loading="lazy"
+                    >
+                    <figcaption>Uma lembrança para guardar ❤️</figcaption>
+                </figure>
+
+                <figure class="fotoCartao">
+                    <img
+                        src="foto2.jpeg"
+                        alt="Segunda memória especial"
+                        loading="lazy"
+                    >
+                    <figcaption>Momentos que fazem parte da nossa história.</figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+
+        <!-- CARTA 2 -->
+
+        <article class="carta cartaColorida">
+
+            <div class="numeroCarta">02 / AS CORES DA SUA HISTÓRIA</div>
+
+            <h2>Cada pessoa tem suas próprias cores. ❤️</h2>
+
+            <p>
+                Existem pessoas que deixam o mundo mais
+                interessante simplesmente por serem quem são.
+            </p>
+
+            <p>
+                Pessoas que têm sonhos, ideias, talentos e
+                uma maneira própria de enxergar as coisas.
+            </p>
+
+            <p>
+                Você tem sua criatividade, seu gosto pelas
+                pinturas e essa capacidade de transformar
+                uma tela em algo que antes só existia na
+                sua imaginação.
+            </p>
+
+            <p>
+                Nunca pense que precisa fazer tudo
+                perfeitamente para que aquilo que você cria
+                tenha valor. Uma pintura não precisa ser
+                igual à de outra pessoa para ser bonita.
+            </p>
+
+            <p>
+                E lembre-se de que seu valor vai muito além
+                de qualquer talento ou conquista. Você é
+                preciosa para Deus, que conhece seu coração
+                e tem cuidado de você em cada fase da vida.
+            </p>
+
+            <blockquote>
+                “Pois somos criação de Deus, realizada em
+                Cristo Jesus para fazermos boas obras.”
+                <br>
+                <span>Efésios 2:10 — NVT</span>
+            </blockquote>
+
+            <p>
+                Continue aprendendo, pintando, sonhando e
+                descobrindo os dons que Deus colocou em você.
+            </p>
+
+            <p class="assinaturaCarta">
+                Que nunca faltem fé para continuar, coragem
+                para tentar e alegria para criar. 🎨✨
+            </p>
+
+        </article>
+
+
+        <!-- FOTOS 3 E 4 -->
+
+        <section class="secaoMemorias">
+
+            <div class="tituloSecao">
+                <span>03 — 04</span>
+                <h2>Mais momentos especiais</h2>
+                <p>Cada lembrança tem seu próprio lugar.</p>
+            </div>
+
+            <div class="gradeFotos">
+
+                <figure class="fotoCartao">
+                    <img
+                        src="foto3.jpeg"
+                        alt="Terceira memória especial"
+                        loading="lazy"
+                    >
+                    <figcaption>Mais uma parte da nossa história.</figcaption>
+                </figure>
+
+                <figure class="fotoCartao">
+                    <img
+                        src="foto4.jpeg"
+                        alt="Quarta memória especial"
+                        loading="lazy"
+                    >
+                    <figcaption>Que venham muitas outras lembranças.</figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+
+        <!-- VÍDEO -->
+
+        <section class="secaoVideo">
+
+            <div class="tituloSecao">
+                <span>05 — UM MOMENTO ESPECIAL</span>
+                <h2>Vamos relembrar?</h2>
+                <p>Reserve um instante para assistir.</p>
+            </div>
+
+            <video
+                id="videoEspecial"
+                controls
+                playsinline
+                preload="metadata"
+            >
+                <source
+                    src="Video.mp4"
+                    type="video/mp4"
+                >
+
+                Seu navegador não conseguiu carregar o vídeo.
+            </video>
+
+        </section>
+
+
+        <!-- CARTA 3 -->
+
+        <article class="carta cartaFinal">
+
+            <div class="numeroCarta">03 / A VERDADEIRA SURPRESA</div>
+
+            <h2>Ei, artista! ❤️🎨</h2>
+
+            <p>
+                Se você chegou até aqui, então descobriu
+                o segredo!
+            </p>
+
+            <p>
+                Aquela tela de erro, o terminal e todas
+                aquelas mensagens faziam parte de uma
+                surpresa. Mas, por trás de toda essa
+                programação, existe algo muito mais simples
+                e verdadeiro: alguém queria preparar algo
+                especial para você.
+            </p>
+
+            <p>
+                Às vezes, a gente pensa que precisa de um
+                presente enorme para demonstrar carinho.
+                Mas também existem presentes feitos de
+                tempo, criatividade, lembranças e pequenos
+                detalhes.
+            </p>
+
+            <p>
+                Quero que você continue pintando suas telas,
+                perseguindo seus sonhos e usando os talentos
+                que Deus lhe deu.
+            </p>
+
+            <p>
+                Que sua caminhada seja cheia de aprendizado,
+                amizades verdadeiras, momentos felizes e
+                uma fé cada vez mais firme em Jesus.
+            </p>
+
+            <p>
+                E, nos dias em que uma pintura não sair como
+                você imaginou, lembre-se: um resultado
+                inesperado não significa que a história
+                terminou. Às vezes, ainda estamos aprendendo
+                a enxergar a obra de outro jeito.
+            </p>
+
+            <p>
+                Que Deus abençoe sua vida, ilumine seus
+                caminhos e lhe dê sabedoria para cada nova
+                etapa.
+            </p>
+
+            <blockquote>
+                Você é importante, sua vida tem valor e
+                ainda existem muitas páginas bonitas para
+                escrever na sua história.
+            </blockquote>
+
+            <div class="coracaoFinal">♥</div>
+
+            <p class="assinaturaFinal">
+                Feito com carinho, especialmente para você.
+            </p>
+
+        </article>
+
+
+        <footer class="rodape">
+            <div class="logo">VTG<span>.</span></div>
+            <p>Uma pequena surpresa, muitas lembranças.</p>
+        </footer>
+
+    </section>
+
+
+    <!-- ÁREA DE NOTIFICAÇÕES -->
+
+    <div
+        id="notificacao"
+        class="notificacao"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+</body>
+</html>
